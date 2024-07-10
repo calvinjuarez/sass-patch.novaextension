@@ -1,0 +1,63 @@
+@use 'sass:color' as sasscolor;
+
+
+:root {
+    --module-function: sasscolor.grayscale(dodgerblue);
+    --module-function-interpolated: #{sasscolor.grayscale(dodgerblue)};
+}
+
+
+.unnested:not() { display: block; }
+.unnested:not(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+    display: block;
+}
+.reset-syntax {}
+
+.unnested:is() { display: block; }
+.unnested:is(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+    display: block;
+}
+.reset-syntax {}
+
+.unnested:has() { display: block; }
+.unnested:has(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+    display: block;
+}
+.reset-syntax {}
+
+.unnested:where() { display: block; }
+.unnested:where(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+    display: block;
+}
+.reset-syntax {}
+
+.unnested:nth-child(even) {}
+
+
+.nested {
+    &:not() { display: block; }
+    &:not(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+        display: block;
+    }
+    .reset-syntax {}
+    
+    &:is() { display: block; }
+    &:is(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+        display: block;
+    }
+    .reset-syntax {}
+    
+    &:has() { display: block; }
+    &:has(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+        display: block;
+    }
+    .reset-syntax {}
+    
+    &:where() { display: block; }
+    &:where(.foo > .bar:first-child, a.complex-selector-list, #baz) {
+        display: block;
+    }
+    .reset-syntax {}
+    
+    &:nth-child(even) {}
+}
